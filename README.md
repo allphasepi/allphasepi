@@ -6,7 +6,7 @@
 - 😄 Pronouns: Raspberry Pi, Python, birdcam
 - ⚡ Fun fact: The only constant in the universe is change!
 
-Bird Table Camera that streams, takes pictures and records. Taken mostly form Picamera2 examples. Haven't mananged to getr async filming to work. Would like to get this working in Node.js or Flask but haven't managed it yet can get streaming in both but haven't managed async recording or taking a photo in either yet and can only get m3u8 streaming working in Node.js but the latency is upto 15 seconds which is useless for my projects. Can get real time streaming working in flask and this Mpeg server so any help or input would be appreciated. Have split HTML away and added seperate css file in new birdcam.py file.
+Bird Table Camera that streams, takes pictures and records. Taken mostly form Picamera2 examples. Haven't mananged to getr async filming to work. Would like to get this working in Node.js or Flask but haven't managed it yet can get streaming in both but haven't managed async recording or taking a photo in either yet and can only get m3u8 streaming working in Node.js but the latency is upto 15 seconds which is useless for my projects. Can get real time streaming working in flask and this Mpeg server so any help or input would be appreciated. Have split HTML away and added seperate css file.
 
 <!---
 allphasepi/allphasepi is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

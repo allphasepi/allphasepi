@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="allphasephil">
+    <title>Pi Zero2 1</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/mystyles.css">
+    
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    </head>
+    <body>
+        <div class="infoContainer">
+        <h1>Pi Zero2 1</h1>
+        <span id="rntime" class="rnt"></span>
+        <br>
+        <button id="Watch" title = "watch video stream" type="button" onclick="window.location.href = '/watch.html' ; " class="button">Watch</button>
+        </div>
+        
+        <div class="infoContainer">
+        <h1>Info</h1>
+        <div class="innerInfo">
+        <iframe src="info.html" width="300" height="200" style="border:none;" name="infstate"></iframe>
+        </div>
+        </div>
+        
+        <div class="infoContainer">
+        <h2>LED</h2>
+        <div class="innerInfo">
+        <button id="Led0n" type="button" title="LED on" onclick=" window.open('/led_on', 'infstate'); return false;" class="button">ON</button>
+        <br>
+        <button id="LedOff" type="button" title="LED off" onclick=" window.open('/led_off', 'infstate'); return false;" class="button">OFF</button>
+        </div>
+        </div>
+        
+<script>     
+   window.onload = function timeNow() {
+  
+   var CurrentTime = new Date(),
+     h = (CurrentTime.getHours()<10?'0':'') + CurrentTime.getHours();
+     m = (CurrentTime.getMinutes()<10?'0':'') + CurrentTime.getMinutes();
+     s = (CurrentTime.getSeconds()<10?'0':'') + CurrentTime.getSeconds();
+
+   var rntime = h + ":" + m +":" + s;
+
+   document.getElementById("rntime").innerHTML = rntime;
+  
+   setTimeout(timeNow,1000);
+
+  }
+  
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="allphasephil">
+    <title>Pi Zero2 1</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/mystyles.css">
+    
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    </head>
+    <body>
+    
+        <div class="infoContainer">
+        <h1>Streaming</h1>
+        <span id="rntime" class="rnt"></span>
+        <br>
+        <div class="innerInfo">
+        <img src="stream.mjpg"  alt="Stream" width="640" height="480">
+        </div>
+        <br>
+        <button id="Home" type="button" title="return to Homepage" onclick="window.location.href = '/index.html';" class="button">Home</button>
+        <button id="Snap" type="button" title="jpg picture" onclick="window.location.href = '/snap.html';" class="button">Snap</button>
+        <button id="Sound" type="button" title="record wav file" onclick=" window.open('/record.html', 'infstate'); return false;" class="button">Sound</button>
+        </div>
+        
+        <div class="infoContainer">
+        <h1>Info</h1>
+        <div class="innerInfo">
+        <iframe src="info.html" width="300" height="200" style="border:none;" name="infstate"></iframe>
+        </div>
+        </div>
+        
+<script>     
+   window.onload = function timeNow() {
+  
+   var CurrentTime = new Date(),
+     h = (CurrentTime.getHours()<10?'0':'') + CurrentTime.getHours();
+     m = (CurrentTime.getMinutes()<10?'0':'') + CurrentTime.getMinutes();
+     s = (CurrentTime.getSeconds()<10?'0':'') + CurrentTime.getSeconds();
+
+   var rntime = h + ":" + m +":" + s;
+
+   document.getElementById("rntime").innerHTML = rntime;
+  
+   setTimeout(timeNow,1000);
+
+  }
+  
+</script>
+
+    </body>
+</html>

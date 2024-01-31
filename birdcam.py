@@ -67,18 +67,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.send_header('Content-Length', len(content))
             self.end_headers()
             self.wfile.write(content)
-        
-        elif self.path == '/favicon.ico':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/favicon.ico", "r")
-            getinf = (getinfo.read())
-            getinfo.close()
-            content = getinf.encode('utf-8')
-            self.send_response(200)
-            self.send_header('Content-Type', 'image/x-icon')
-            self.send_header('Content-Length', len(content))
-            self.end_headers()
-            self.wfile.write(content)
-                      
+                              
         elif self.path == '/snap.html':
             getsnap = open("/home/allzero21/Webserver/birdcam/public/snap.html", "r")
             getsnp = (getsnap.read())

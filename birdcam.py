@@ -47,7 +47,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
             
         elif self.path == '/index.html':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/index.html", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/index.html", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
@@ -58,7 +58,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.wfile.write(content) 
             
         elif self.path == '/mystyles.css':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/css/mystyles.css", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/css/mystyles.css", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
@@ -69,7 +69,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.wfile.write(content)
                               
         elif self.path == '/snap.html':
-            getsnap = open("/home/allzero21/Webserver/birdcam/public/snap.html", "r")
+            getsnap = open("/home/pi/Webserver/birdcam/public/snap.html", "r")
             getsnp = (getsnap.read())
             getsnap.close()
             content = getsnp.encode('utf-8')
@@ -82,12 +82,12 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             timestamp = datetime.now().isoformat("_","seconds")
             still_config = picam2.create_still_configuration(transform=Transform(hflip=1, vflip=1))
             time.sleep(1)
-            job = picam2.switch_mode_and_capture_file(still_config, "/home/allzero21/Webserver/birdcam/public/photo/snap_%s.jpg" % timestamp, wait=False)
+            job = picam2.switch_mode_and_capture_file(still_config, "/home/pi/Webserver/birdcam/public/photo/snap_%s.jpg" % timestamp, wait=False)
             print(timestamp)
             time.sleep(1)
         
         elif self.path == '/record.html':
-            getrecord = open("/home/allzero21/Webserver/birdcam/public/record.html", "r")
+            getrecord = open("/home/pi/Webserver/birdcam/public/record.html", "r")
             getrcrd = (getrecord.read())
             getrecord.close()
             content = getrcrd.encode('utf-8')
@@ -97,10 +97,10 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(content)
             print("recording")
-            subprocess.Popen('arecord -D dmic_sv -d 30 -f S32_LE /home/allzero21/Webserver/birdcam/public/record/birdcam_$(date "+%b-%d-%y-%I:%M:%S-%p").wav -c 2', shell=True)
+            subprocess.Popen('arecord -D dmic_sv -d 30 -f S32_LE /home/pi/Webserver/birdcam/public/record/birdcam_$(date "+%b-%d-%y-%I:%M:%S-%p").wav -c 2', shell=True)
         
         elif self.path == '/info.html':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/info.html", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/info.html", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
@@ -111,7 +111,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.wfile.write(content)
         
         elif self.path == '/led_on':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/led_on.html", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/led_on.html", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
@@ -124,7 +124,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             GPIO.output(16,GPIO.HIGH)
         
         elif self.path == '/led_off':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/led_off.html", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/led_off.html", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
@@ -137,7 +137,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             GPIO.output(16,GPIO.LOW)
         
         elif self.path == '/watch.html':
-            getinfo = open("/home/allzero21/Webserver/birdcam/public/watch.html", "r")
+            getinfo = open("/home/pi/Webserver/birdcam/public/watch.html", "r")
             getinf = (getinfo.read())
             getinfo.close()
             content = getinf.encode('utf-8')
